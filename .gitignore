@@ -1,0 +1,54 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs
+*.log
+*.pot
+*.mo
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Odoo specific
+*.xls
+*.xlsx
+*.csv
+*.pdf
+*.zip
+*.tar.gz
+*.pot
+
+# Coverage / test files
+.coverage
+.tox/
+htmlcov/
+
+# Node / frontend (if used)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Local configs
+*.conf
+*.local
+*.secret

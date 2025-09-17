@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit the sale.order action to set calendar as default view -->
+    <record id="salon_demo_action_orders" model="ir.actions.act_window">
+        <field name="name">Sales Orders (Calendar Default)</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">calendar,tree,kanban,form,pivot,graph,activity</field>
+        <field name="view_id" eval="False"/>
+        <field name="context">{'search_default_my_sale_orders': 1}</field>
+    </record>
+
+    <!-- Action binding: override the menu to use our new action -->
+    <record id="sale.sale_menu_root" model="ir.ui.menu">
+        <field name="action" ref="salon_demo.salon_demo_action_orders"/>
+    </record>
+
+    <record id="salon_demo_inherit_sale_order_calendar" model="ir.ui.view">
+        <field name="name">sale.order.calendar.inherit.salon.demo</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sale_order_calendar"/>
+        <field name="arch" type="xml">
+            <calendar position="attributes">
+                <attribute name="create">1</attribute>
+                <attribute name="quick_create">1</attribute>
+                <attribute name="quick_create_view_id">%(sale.view_order_form)d</attribute>
+            </calendar>
+        </field>
+    </record>
+</odoo>
