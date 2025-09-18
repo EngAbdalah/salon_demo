@@ -1,0 +1,17 @@
+<odoo>
+    <record id="view_assign_worker_wizard_form" model="ir.ui.view">
+        <field name="name">assign.worker.wizard.form</field>
+        <field name="model">assign.worker.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Assign Worker">
+                <group>
+                    <field name="worker_id"/>
+                </group>
+                <footer>
+                    <button name="action_apply" type="object" string="Apply" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

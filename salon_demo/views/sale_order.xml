@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
     <record id="sale.action_orders" model="ir.actions.act_window">
-        <field name="view_mode">calendar,tree,kanban,form,pivot,graph,activity</field>
-        <field name="view_id" eval="False"/>
+        <field name="view_mode">calendar,kanban,form,pivot,graph,activity,tree</field>
+        <field name="view_id" eval="0"/>
         <field name="context">{'search_default_my_sale_orders': 1}</field>
     </record>
 
@@ -19,4 +18,27 @@
             </calendar>
         </field>
     </record>
+
+    <record id="salon_demo_sale_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.salon.demo</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_confirm']" position="after">
+                <button name="action_assign_worker"
+                        type="object"
+                        string="Assign Worker"
+                        class="btn-primary"
+                />
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="after">
+                <field name="worker_id"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='tax_id']" position="after">
+                <field name="assign_id"/>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
